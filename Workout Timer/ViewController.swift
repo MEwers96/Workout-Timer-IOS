@@ -10,8 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     //MARK: Outlets?
+    var timer: Timer!
     
-    private let dataSource = ["10", "20", "30", "40", "50", "60"]
+    var totalTime = 0
+    
+    private let dataSource = [" 0", "10", "20", "30", "40", "50", "60"]
+    
+    @IBOutlet weak var staticTimeLabel: UILabel!
+    
+    @IBOutlet weak var staticIntervalLabel: UILabel!
+    
+    @IBOutlet weak var staticSecondsLabel: UILabel!
     
     @IBOutlet weak var TimeLabel: UILabel!
     
@@ -37,7 +46,7 @@ class ViewController: UIViewController {
         intervalPicker.dataSource = self
         intervalPicker.delegate = self
         
-    }
+}
     
     //MARK: Actions
     
@@ -57,10 +66,7 @@ class ViewController: UIViewController {
         timerPicker.isHidden = false
         
         choiceDoneButton.isHidden = false
-        
-        
-    }
-    
+}
     
     
     
@@ -77,9 +83,7 @@ class ViewController: UIViewController {
         choiceDoneButton.isHidden = false
         
         intervalPicker.isHidden = false
-        
-        
-    }
+}
     
     
     
@@ -92,7 +96,7 @@ class ViewController: UIViewController {
         
         if(timerChangeButton.isHidden == true){
             let dateFormatter =  DateFormatter()
-            dateFormatter.dateFormat = "hh:mm"
+            dateFormatter.dateFormat = "HH:mm"
             let timeChosen = dateFormatter.string(from: timerPicker.date)
             TimeLabel.text = timeChosen
             
@@ -108,14 +112,93 @@ class ViewController: UIViewController {
             
             
         }
+            
         else{
             
+            timerChangeButton.isEnabled = true
             
+            intervalPicker.isHidden = true
             
-        }
+            intervalChangeButton.isHidden = false
+            
+            choiceDoneButton.isHidden = true
     }
 }
     
+    
+    /* function: startTimerAction
+     *
+     * Description: This function will be called once the "Start Timer" button has been pressed. It will animate the labels off the screen. then it will call another function to start the timer.
+     */
+    @IBAction func startTimerAction(_ sender: UIButton) {
+        
+        intervalChangeButton.isHidden = true
+        timerChangeButton.isHidden = true
+        startTimerButton.isHidden = true
+        
+        UIView.animate(withDuration: 2.5, animations:
+            {
+                self.staticTimeLabel.center.x -= 300
+            
+                self.staticIntervalLabel.center.x -= 300
+            
+                self.staticSecondsLabel.center.x += 300
+            
+                self.intervalLabel.center.x += 300
+          
+                self.TimeLabel.text?.append(":00")
+
+                self.TimeLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.TimeLabel.center = self.view.center
+
+        })
+        
+        runTimer()
+    
+}
+    
+    
+    /* function: runTimer
+     *
+     * Description: This function is called by startTimerAction, which is caused by the press of "Start Timer". Once run, this function will get each of the times set and run the timer.
+     */
+    func runTimer(){
+        
+        let hours = Int(TimeLabel.text!.components(separatedBy: ":")[0])!
+        let minutes = Int(TimeLabel.text!.components(separatedBy: ":")[1])!
+       
+        totalTime = (hours*3600)+(minutes*60)
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        
+    
+}
+    
+    
+    /* function: updateTimer
+     *
+     * Description: This funciton will be called by the timer in the runTimer function. It will continuously be called by the timer untill stopped, or the time runes out.
+     */
+    @objc func updateTimer(){
+        if(totalTime < 1){
+            timer.invalidate()
+        }
+        else{
+            totalTime -= 1
+            
+            let hours = totalTime/3600
+            let minutes = (totalTime/60)%60
+            let seconds = totalTime%60
+            
+            TimeLabel.text = "\(hours):\(minutes):\(seconds)"
+        }
+    }
+}
+
+    
+    /* This ViewController extension is for the
+     * UIPicker.
+     */
     extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -132,6 +215,6 @@ class ViewController: UIViewController {
         }
         
         
-    }
+}
 
 
