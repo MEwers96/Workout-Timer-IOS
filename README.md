@@ -22,13 +22,7 @@ the "Rest" time the app will have a red background, with white text for the time
 
   **COMPLETE**
 
-4. ~~Complete timer by adding pause/stop/reset buttons. Ensure that all button work properly before moving on.~~
 
-  **COMPLETE**
-
-5. ~~Consider the interval selection into the system. Every time interval is active show a "go", when not active show "rest" (better designs LATER)~~
-
-  **COMPLETE**
 
 6. Implement designs in the app. Background pictures/colors, animated gifs for "go" and "rest" phases
 
