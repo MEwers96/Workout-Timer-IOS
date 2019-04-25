@@ -9,6 +9,9 @@ developed/ported to Andriod.
 3. During a timing phase, the "Go" time will have a green background, with white text for the timer. During
 the "Rest" time the app will have a red background, with white text for the timer
 
+**CODE UPDATE 4/25/19:**
+1. Reform comments that are outdated. Specify updates below Description section of comments. Explain exactly what the additions do.
+
 # Current Progress:
 1. ~~Create simple main page for the timer, icluding the timer/interval labels, buttons, and all other required media to funciton~~
 
@@ -32,4 +35,12 @@ the "Rest" time the app will have a red background, with white text for the time
 
 6. Implement designs in the app. Background pictures/colors, animated gifs for "go" and "rest" phases
 
-  **NOT STARTED**
+  **IN-PROGRESS (MOSTLY FINISHED)**
+  
+
+# NEW FEATURES:
+
+1. Add 5 second countdown timer before each phase of "Rest" and "Go" begins. 
+
+2. Add Sound which plays at each second of the above feature. 
+
