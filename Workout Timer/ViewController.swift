@@ -87,10 +87,7 @@ class ViewController: UIViewController {
      */
     @IBAction func timeChangeAction(_ sender: UIButton) {
         
-        let defaultFormatter =  DateFormatter()
-        let time = Date()
-       
-        //timerPicker.setDate(<#T##date: Date##Date#>, animated: <#T##Bool#>)
+        timerPicker.countDownDuration = 0
         
         timerChangeButton.isHidden = true
         
@@ -451,7 +448,6 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         
-        TimeLabel.text = "00:00"
         
         UIView.animate(withDuration: 2.5, animations: {
             
@@ -501,6 +497,8 @@ class ViewController: UIViewController {
              * to where they should be.
              */
             DispatchQueue.main.asyncAfter(deadline: .now() +  2.5,  execute:{
+            
+            self.TimeLabel.text = "00:00"
             self.resumeButton.isHidden = true
         
             self.resumeButton.center.x += 300
