@@ -12,6 +12,8 @@ the "Rest" time the app will have a red background, with white text for the time
 # CODE UPDATE 4/25/19:
 1. Reform comments that are outdated. Specify updates below Description section of comments. Explain exactly what the additions do.
 
+2. Review code for repetitive code which may be simplified.
+
 # Current Progress:
 1. ~~Create simple main page for the timer, icluding the timer/interval labels, buttons, and all other required media to funciton~~
 
