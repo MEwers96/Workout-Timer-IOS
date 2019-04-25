@@ -9,7 +9,7 @@ developed/ported to Andriod.
 3. During a timing phase, the "Go" time will have a green background, with white text for the timer. During
 the "Rest" time the app will have a red background, with white text for the timer
 
-**CODE UPDATE 4/25/19:**
+# CODE UPDATE 4/25/19:
 1. Reform comments that are outdated. Specify updates below Description section of comments. Explain exactly what the additions do.
 
 # Current Progress:
