@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73B4C66A226FD740004C1DD3 /* blackGoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C664226FD740004C1DD3 /* blackGoPic.png */; };
+		73B4C66B226FD740004C1DD3 /* whiteGoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C665226FD740004C1DD3 /* whiteGoPic.png */; };
+		73B4C66C226FD740004C1DD3 /* greenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C666226FD740004C1DD3 /* greenBackground.png */; };
+		73B4C673226FDBFE004C1DD3 /* pauseButton (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C670226FDBFE004C1DD3 /* pauseButton (1).png */; };
+		73B4C674226FDBFE004C1DD3 /* resumeButton (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C671226FDBFE004C1DD3 /* resumeButton (1).png */; };
+		73B4C675226FDBFE004C1DD3 /* cancelButton (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C672226FDBFE004C1DD3 /* cancelButton (1).png */; };
+		73B4C677226FE10E004C1DD3 /* blackGoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C676226FE10E004C1DD3 /* blackGoPic.png */; };
+		73B4C679226FE11B004C1DD3 /* whiteGoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C678226FE11B004C1DD3 /* whiteGoPic.png */; };
+		73B4C67E226FEF4C004C1DD3 /* blackRestPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C67A226FEF4B004C1DD3 /* blackRestPic.png */; };
+		73B4C67F226FEF4C004C1DD3 /* whiteRestPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C67B226FEF4B004C1DD3 /* whiteRestPic.png */; };
+		73B4C680226FEF4C004C1DD3 /* blackZZZPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C67C226FEF4C004C1DD3 /* blackZZZPic.png */; };
+		73B4C681226FEF4C004C1DD3 /* whiteZZZPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C67D226FEF4C004C1DD3 /* whiteZZZPic.png */; };
 		73D4CA95226BE645003D1B03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4CA94226BE645003D1B03 /* AppDelegate.swift */; };
 		73D4CA97226BE645003D1B03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4CA96226BE645003D1B03 /* ViewController.swift */; };
 		73D4CA9A226BE645003D1B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73D4CA98226BE645003D1B03 /* Main.storyboard */; };
@@ -34,6 +46,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73B4C664226FD740004C1DD3 /* blackGoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackGoPic.png; path = ../../../Downloads/blackGoPic.png; sourceTree = "<group>"; };
+		73B4C665226FD740004C1DD3 /* whiteGoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteGoPic.png; path = ../../../Downloads/whiteGoPic.png; sourceTree = "<group>"; };
+		73B4C666226FD740004C1DD3 /* greenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenBackground.png; path = ../../../Downloads/greenBackground.png; sourceTree = "<group>"; };
+		73B4C670226FDBFE004C1DD3 /* pauseButton (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pauseButton (1).png"; path = "../../../Downloads/pauseButton (1).png"; sourceTree = "<group>"; };
+		73B4C671226FDBFE004C1DD3 /* resumeButton (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "resumeButton (1).png"; path = "../../../Downloads/resumeButton (1).png"; sourceTree = "<group>"; };
+		73B4C672226FDBFE004C1DD3 /* cancelButton (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancelButton (1).png"; path = "../../../Downloads/cancelButton (1).png"; sourceTree = "<group>"; };
+		73B4C676226FE10E004C1DD3 /* blackGoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackGoPic.png; path = ../../../Downloads/blackGoPic.png; sourceTree = "<group>"; };
+		73B4C678226FE11B004C1DD3 /* whiteGoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteGoPic.png; path = ../../../Downloads/whiteGoPic.png; sourceTree = "<group>"; };
+		73B4C67A226FEF4B004C1DD3 /* blackRestPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackRestPic.png; path = ../../../Downloads/blackRestPic.png; sourceTree = "<group>"; };
+		73B4C67B226FEF4B004C1DD3 /* whiteRestPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteRestPic.png; path = ../../../Downloads/whiteRestPic.png; sourceTree = "<group>"; };
+		73B4C67C226FEF4C004C1DD3 /* blackZZZPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackZZZPic.png; path = ../../../Downloads/blackZZZPic.png; sourceTree = "<group>"; };
+		73B4C67D226FEF4C004C1DD3 /* whiteZZZPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteZZZPic.png; path = ../../../Downloads/whiteZZZPic.png; sourceTree = "<group>"; };
 		73D4CA91226BE645003D1B03 /* Workout Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workout Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D4CA94226BE645003D1B03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73D4CA96226BE645003D1B03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +125,18 @@
 				73D4CA96226BE645003D1B03 /* ViewController.swift */,
 				73D4CA98226BE645003D1B03 /* Main.storyboard */,
 				73D4CA9B226BE646003D1B03 /* Assets.xcassets */,
+				73B4C678226FE11B004C1DD3 /* whiteGoPic.png */,
+				73B4C67A226FEF4B004C1DD3 /* blackRestPic.png */,
+				73B4C67C226FEF4C004C1DD3 /* blackZZZPic.png */,
+				73B4C67B226FEF4B004C1DD3 /* whiteRestPic.png */,
+				73B4C67D226FEF4C004C1DD3 /* whiteZZZPic.png */,
+				73B4C664226FD740004C1DD3 /* blackGoPic.png */,
+				73B4C666226FD740004C1DD3 /* greenBackground.png */,
+				73B4C672226FDBFE004C1DD3 /* cancelButton (1).png */,
+				73B4C670226FDBFE004C1DD3 /* pauseButton (1).png */,
+				73B4C671226FDBFE004C1DD3 /* resumeButton (1).png */,
+				73B4C676226FE10E004C1DD3 /* blackGoPic.png */,
+				73B4C665226FD740004C1DD3 /* whiteGoPic.png */,
 				73D4CA9D226BE646003D1B03 /* LaunchScreen.storyboard */,
 				73D4CAA0226BE646003D1B03 /* Info.plist */,
 			);
@@ -229,9 +265,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73B4C674226FDBFE004C1DD3 /* resumeButton (1).png in Resources */,
+				73B4C679226FE11B004C1DD3 /* whiteGoPic.png in Resources */,
+				73B4C673226FDBFE004C1DD3 /* pauseButton (1).png in Resources */,
+				73B4C66A226FD740004C1DD3 /* blackGoPic.png in Resources */,
+				73B4C66B226FD740004C1DD3 /* whiteGoPic.png in Resources */,
 				73D4CA9F226BE646003D1B03 /* LaunchScreen.storyboard in Resources */,
+				73B4C66C226FD740004C1DD3 /* greenBackground.png in Resources */,
+				73B4C680226FEF4C004C1DD3 /* blackZZZPic.png in Resources */,
+				73B4C677226FE10E004C1DD3 /* blackGoPic.png in Resources */,
 				73D4CA9C226BE646003D1B03 /* Assets.xcassets in Resources */,
+				73B4C67F226FEF4C004C1DD3 /* whiteRestPic.png in Resources */,
+				73B4C681226FEF4C004C1DD3 /* whiteZZZPic.png in Resources */,
 				73D4CA9A226BE645003D1B03 /* Main.storyboard in Resources */,
+				73B4C67E226FEF4C004C1DD3 /* blackRestPic.png in Resources */,
+				73B4C675226FDBFE004C1DD3 /* cancelButton (1).png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

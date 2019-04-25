@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     //MARK: Outlets?
     var timer: Timer!
     
+    var pauseIsActive = false
+    
     var intervalTime = 0
     
     var tempIntervalCount = 0
@@ -24,6 +26,9 @@ class ViewController: UIViewController {
     
     private let dataSource = ["10", "20", "30", "40", "50"]
    
+    var currentColor = UIColor.lightGray
+    
+    @IBOutlet weak var pausedLabel: UILabel!
     
     @IBOutlet weak var restLabel: UILabel!
     
@@ -64,6 +69,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = currentColor
+        
         intervalPicker.dataSource = self
         intervalPicker.delegate = self
         
@@ -79,6 +86,11 @@ class ViewController: UIViewController {
      *  Description: Allows user to start the process of setting the "Time" from date picker of selections. Generally will just cause different buttons to become hidden/non-hidden
      */
     @IBAction func timeChangeAction(_ sender: UIButton) {
+        
+        let defaultFormatter =  DateFormatter()
+        let time = Date()
+       
+        //timerPicker.setDate(<#T##date: Date##Date#>, animated: <#T##Bool#>)
         
         timerChangeButton.isHidden = true
         
@@ -122,7 +134,12 @@ class ViewController: UIViewController {
         
         if(timerChangeButton.isHidden == true){
             let dateFormatter =  DateFormatter()
+            //let defaultTime = dateFormatter.date(from: "00:00")
+            //timerPicker.date = defaultTime!
+            
             dateFormatter.dateFormat = "HH:mm"
+            
+            
             let timeChosen = dateFormatter.string(from: timerPicker.date)
             TimeLabel.text = timeChosen
             
@@ -173,8 +190,18 @@ class ViewController: UIViewController {
         
         pauseButton.isHidden = false
         cancelButton.isHidden = false
+        
         pauseButton.center.x -= 300
         cancelButton.center.x += 300
+        
+        restLabel.center.x = -600
+        goLabel.center.y = -70
+        pausedLabel.center.x = 600
+        
+        pausedLabel.isHidden = false
+        restLabel.isHidden = false
+        goLabel.isHidden = false
+        
         
         UIView.animate(withDuration: 2.5, animations:
             {
@@ -195,12 +222,16 @@ class ViewController: UIViewController {
                 self.TimeLabel.center.y += 150
                 
                 self.TimeLabel.center.x -= 25
+                
+                self.goLabel.center.y += 300
 
                 
                 self.TimeLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
 
         })
         
+        restLabel.center.y = goLabel.center.y
+        pausedLabel.center.y = goLabel.center.y
         runTimer()
     
 }
@@ -212,7 +243,6 @@ class ViewController: UIViewController {
      */
     func runTimer(){
         
-        goLabel.isHidden = false
         
         let hours = Int(TimeLabel.text!.components(separatedBy: ":")[0])!
         let minutes = Int(TimeLabel.text!.components(separatedBy: ":")[1])!
@@ -220,7 +250,12 @@ class ViewController: UIViewController {
         totalTime = (hours*3600)+(minutes*60)
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+    
         
+        
+        currentColor = UIColor.green
+        self.view.backgroundColor = UIColor.green
+        self.viewDidLoad()
     
 }
     
@@ -239,27 +274,7 @@ class ViewController: UIViewController {
             
             totalTime -= 1
             
-            if(restIsActive == true){
-                if(tempRestCount == 0){
-                    restLabel.isHidden = true
-                    goLabel.isHidden = false
-                    restIsActive = false
-                }
-                else{
-                goLabel.isHidden = true
-                restLabel.isHidden = false
-                tempRestCount -= 1
-                }
-            }
-            else{
-            tempIntervalCount += 1
-            }
-           
-            if(tempIntervalCount == 60-intervalTime){
-                restIsActive = true
-                tempRestCount = intervalTime
-                tempIntervalCount = 0
-            }
+            restGoUpdater()
             
             let hours = totalTime/3600
             let minutes = (totalTime/60)%60
@@ -286,15 +301,114 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    /* function: restGoUpdater()
+     *
+     * Description: This function will keep track of the interval selected by the user. Once the timer starts, the user will be in "go" time. Once (60 seconds - interval seconds) is reached, then the user will go into rest mode
+     */
+    func restGoUpdater(){
+        if(restIsActive == true){
+            if(tempRestCount == 0){
+                
+                restIsActive = false
+                
+                currentColor = UIColor.green
+                self.view.backgroundColor = UIColor.green
+                self.viewDidLoad()
+               
+                goPicAnimation()
+
+                
+            }
+            else{
+                tempRestCount -= 1
+            }
+        }
+        else{
+            
+            
+            tempIntervalCount += 1
+        }
+        
+        if(tempIntervalCount == 60-intervalTime){
+            restIsActive = true
+            currentColor = UIColor.blue
+            self.view.backgroundColor = UIColor.blue
+            self.viewDidLoad()
+
+
+            tempRestCount = intervalTime
+            tempIntervalCount = 0
+            goPicAnimation()
+
+            
+        }
+        
+    }
+    
+    /* function: goPicAnimation()
+     *
+     * Description: This function will handle the random animations of the "GO!" PNGs. ***NEEDS WORK***
+     */
+    func goPicAnimation(){
+        
+        if(restIsActive == false){
+            UIView.animate(withDuration: 1.0, animations: {
+                self.goLabel.center.x = self.restLabel.center.x
+                self.goLabel.center.y = self.restLabel.center.y
+                
+                self.restLabel.center.x -= 600
+            })
+        }
+        else{
+        restLabel.isHidden = false
+        //restLabel.center.x = goLabel.center.x
+        UIView.animate(withDuration: 1.0, animations: {
+            self.restLabel.center.x = self.goLabel.center.x
+            self.restLabel.center.y = self.goLabel.center.y
+            
+            self.goLabel.center.y -= 300
+            })
+        
+
+        }
+    }
+    
+
+    
+    
     /* function: pauseButtonAction
      *
      * Description: This function will be called when the 'pause' button is pressed by the user. The function will then stop the timer where it currently is. It will also change the hidden statiu
      */
     @IBAction func pauseButtonAction(_ sender: UIButton) {
         timer.invalidate()
+        
+        pauseIsActive = true
+
         pauseButton.isHidden = true
         resumeButton.isHidden = false
+        pausedLabel.isHidden = false
+        
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            if(self.restIsActive == false){
+                self.pausedLabel.center.x = self.goLabel.center.x
+                self.pausedLabel.center.y = self.goLabel.center.y
+            
+                self.goLabel.center.y -= 300
+            }
+            else{
+                self.pausedLabel.center.x = self.restLabel.center.x
+                self.pausedLabel.center.y = self.restLabel.center.y
+                    
+                self.restLabel.center.x -= 600
+                    
+            }
+            
+        })
     }
+
     
     
     /* fucntion: resumeButtonAction
@@ -303,8 +417,29 @@ class ViewController: UIViewController {
      */
     @IBAction func resumeButtonAction(_ sender: UIButton) {
         timer  = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        
         resumeButton.isHidden = true
         pauseButton.isHidden = false
+        pauseIsActive = false
+        
+        if(restIsActive == false){
+            UIView.animate(withDuration: 1.0, animations: {
+                self.goLabel.center.x = self.pausedLabel.center.x
+                self.goLabel.center.y = self.pausedLabel.center.y
+                
+                self.pausedLabel.center.x += 600
+                
+            })
+            
+        }
+        else{
+            UIView.animate(withDuration: 1.0, animations: {
+                self.restLabel.center.x = self.pausedLabel.center.x
+                self.restLabel.center.y = self.pausedLabel.center.y
+                
+                self.pausedLabel.center.x += 600
+            })
+        }
     }
     
     /* function: cancelButtonAction
@@ -312,9 +447,7 @@ class ViewController: UIViewController {
      * Description: This function will be called by the 'cancel' button. It will return to the original screen where the user may interact with the time changing buttons.
      */
     @IBAction func cancelButtonAction(_ sender: UIButton) {
-        
-        goLabel.isHidden = true
-        restLabel.isHidden = true
+        self.view.backgroundColor = .lightGray
         
         timer.invalidate()
         
@@ -342,17 +475,32 @@ class ViewController: UIViewController {
             self.staticIntervalLabel.center.x += 300
                 
             self.intervalLabel.center.x -= 300
+            
+            if(self.pauseIsActive == true){
+                self.pausedLabel.center.x += 600
+            }
+            else if(self.restIsActive == false){
+                self.goLabel.center.y -= 300
+            }
+            else{
+                self.restLabel.center.x -= 600
+            }
+        
                 
           
             
             
             })
+            tempRestCount = 0
+            tempIntervalCount = 0
+            restIsActive = false
+            pauseIsActive = false
         
             /* This code delays the reappearance of the change buttons
              * and hides the pause/resume/cancel buttons, and returns them
              * to where they should be.
              */
-            DispatchQueue.main.asyncAfter(deadline: .now() +  3.0,  execute:{
+            DispatchQueue.main.asyncAfter(deadline: .now() +  2.5,  execute:{
             self.resumeButton.isHidden = true
         
             self.resumeButton.center.x += 300
