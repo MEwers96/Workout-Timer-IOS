@@ -9,6 +9,11 @@ developed/ported to Andriod.
 3. During a timing phase, the "Go" time will have a green background, with white text for the timer. During
 the "Rest" time the app will have a red background, with white text for the timer
 
+# CODE UPDATE 4/25/19:
+1. Reform comments that are outdated. Specify updates below Description section of comments. Explain exactly what the additions do.
+
+2. Review code for repetitive code which may be simplified.
+
 # Current Progress:
 1. ~~Create simple main page for the timer, icluding the timer/interval labels, buttons, and all other required media to funciton~~
 
@@ -30,6 +35,21 @@ the "Rest" time the app will have a red background, with white text for the time
 
   **COMPLETE**
 
-6. Implement designs in the app. Background pictures/colors, animated gifs for "go" and "rest" phases
+6. ~~Implement designs in the app. Background pictures/colors, animated gifs for "go" and "rest" phases~~
 
-  **NOT STARTED**
+  **COMPLETE**
+  **NOTE:** Orginal gif design idea has been scrapped. Simply didn't look good with only being able to animate every 1.0 seconds. New design works and is smooth!
+  
+
+# NEW FEATURES:
+
+1. Add 5 second countdown timer before each phase of "Rest" and "Go" begins. 
+  **COMPLETE**
+
+2. Add Sound which plays at each second of the above feature. 
+  **COMPLETE / NEEDS TESITNG**
+  
+3. Add ability to select exercise interval time along with rest time. 
+
+4. Conside adMob ads (at least for practice)
+
