@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73A5392422753986002ADE3A /* Beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 73A5392322753986002ADE3A /* Beep.mp3 */; };
 		73B4C66A226FD740004C1DD3 /* blackGoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C664226FD740004C1DD3 /* blackGoPic.png */; };
 		73B4C66B226FD740004C1DD3 /* whiteGoPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C665226FD740004C1DD3 /* whiteGoPic.png */; };
 		73B4C66C226FD740004C1DD3 /* greenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B4C666226FD740004C1DD3 /* greenBackground.png */; };
@@ -26,6 +27,15 @@
 		73D4CA9F226BE646003D1B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73D4CA9D226BE646003D1B03 /* LaunchScreen.storyboard */; };
 		73D4CAAA226BE646003D1B03 /* Workout_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4CAA9226BE646003D1B03 /* Workout_TimerTests.swift */; };
 		73D4CAB5226BE646003D1B03 /* Workout_TimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4CAB4226BE646003D1B03 /* Workout_TimerUITests.swift */; };
+		73DA9A0A2277B5F80023775E /* WTIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A072277B5F80023775E /* WTIcon2.png */; };
+		73DA9A0B2277B5F80023775E /* WTIcon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A082277B5F80023775E /* WTIcon1.png */; };
+		73DA9A0C2277B5F80023775E /* WTIcon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A092277B5F80023775E /* WTIcon3.png */; };
+		73DA9A132277B7B30023775E /* appICon1 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A0D2277B7B30023775E /* appICon1 40x40.png */; };
+		73DA9A142277B7B30023775E /* appICon4 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A0E2277B7B30023775E /* appICon4 87x87.png */; };
+		73DA9A152277B7B30023775E /* appICon3 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A0F2277B7B30023775E /* appICon3 58x58.png */; };
+		73DA9A162277B7B30023775E /* appICon2 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A102277B7B30023775E /* appICon2 60x60.png */; };
+		73DA9A172277B7B30023775E /* appICon5 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A112277B7B30023775E /* appICon5 120x120.png */; };
+		73DA9A182277B7B30023775E /* appICon6 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DA9A122277B7B30023775E /* appICon6 180x180.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73A5392322753986002ADE3A /* Beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Beep.mp3; path = ../../../Downloads/Beep.mp3; sourceTree = "<group>"; };
 		73B4C664226FD740004C1DD3 /* blackGoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackGoPic.png; path = ../../../Downloads/blackGoPic.png; sourceTree = "<group>"; };
 		73B4C665226FD740004C1DD3 /* whiteGoPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteGoPic.png; path = ../../../Downloads/whiteGoPic.png; sourceTree = "<group>"; };
 		73B4C666226FD740004C1DD3 /* greenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenBackground.png; path = ../../../Downloads/greenBackground.png; sourceTree = "<group>"; };
@@ -71,6 +82,15 @@
 		73D4CAB0226BE646003D1B03 /* Workout TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Workout TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D4CAB4226BE646003D1B03 /* Workout_TimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout_TimerUITests.swift; sourceTree = "<group>"; };
 		73D4CAB6226BE646003D1B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73DA9A072277B5F80023775E /* WTIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WTIcon2.png; path = ../../../Downloads/WTIcon2.png; sourceTree = "<group>"; };
+		73DA9A082277B5F80023775E /* WTIcon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WTIcon1.png; path = ../../../Downloads/WTIcon1.png; sourceTree = "<group>"; };
+		73DA9A092277B5F80023775E /* WTIcon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WTIcon3.png; path = ../../../Downloads/WTIcon3.png; sourceTree = "<group>"; };
+		73DA9A0D2277B7B30023775E /* appICon1 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appICon1 40x40.png"; path = "../../../Downloads/appICon1 40x40.png"; sourceTree = "<group>"; };
+		73DA9A0E2277B7B30023775E /* appICon4 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appICon4 87x87.png"; path = "../../../Downloads/appICon4 87x87.png"; sourceTree = "<group>"; };
+		73DA9A0F2277B7B30023775E /* appICon3 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appICon3 58x58.png"; path = "../../../Downloads/appICon3 58x58.png"; sourceTree = "<group>"; };
+		73DA9A102277B7B30023775E /* appICon2 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appICon2 60x60.png"; path = "../../../Downloads/appICon2 60x60.png"; sourceTree = "<group>"; };
+		73DA9A112277B7B30023775E /* appICon5 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appICon5 120x120.png"; path = "../../../Downloads/appICon5 120x120.png"; sourceTree = "<group>"; };
+		73DA9A122277B7B30023775E /* appICon6 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appICon6 180x180.png"; path = "../../../Downloads/appICon6 180x180.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +150,20 @@
 				73B4C67C226FEF4C004C1DD3 /* blackZZZPic.png */,
 				73B4C67B226FEF4B004C1DD3 /* whiteRestPic.png */,
 				73B4C67D226FEF4C004C1DD3 /* whiteZZZPic.png */,
+				73A5392322753986002ADE3A /* Beep.mp3 */,
 				73B4C664226FD740004C1DD3 /* blackGoPic.png */,
+				73DA9A0D2277B7B30023775E /* appICon1 40x40.png */,
+				73DA9A102277B7B30023775E /* appICon2 60x60.png */,
+				73DA9A0F2277B7B30023775E /* appICon3 58x58.png */,
+				73DA9A0E2277B7B30023775E /* appICon4 87x87.png */,
+				73DA9A112277B7B30023775E /* appICon5 120x120.png */,
+				73DA9A122277B7B30023775E /* appICon6 180x180.png */,
 				73B4C666226FD740004C1DD3 /* greenBackground.png */,
 				73B4C672226FDBFE004C1DD3 /* cancelButton (1).png */,
 				73B4C670226FDBFE004C1DD3 /* pauseButton (1).png */,
+				73DA9A082277B5F80023775E /* WTIcon1.png */,
+				73DA9A072277B5F80023775E /* WTIcon2.png */,
+				73DA9A092277B5F80023775E /* WTIcon3.png */,
 				73B4C671226FDBFE004C1DD3 /* resumeButton (1).png */,
 				73B4C676226FE10E004C1DD3 /* blackGoPic.png */,
 				73B4C665226FD740004C1DD3 /* whiteGoPic.png */,
@@ -267,15 +297,25 @@
 			files = (
 				73B4C674226FDBFE004C1DD3 /* resumeButton (1).png in Resources */,
 				73B4C679226FE11B004C1DD3 /* whiteGoPic.png in Resources */,
+				73A5392422753986002ADE3A /* Beep.mp3 in Resources */,
+				73DA9A0B2277B5F80023775E /* WTIcon1.png in Resources */,
+				73DA9A172277B7B30023775E /* appICon5 120x120.png in Resources */,
+				73DA9A132277B7B30023775E /* appICon1 40x40.png in Resources */,
 				73B4C673226FDBFE004C1DD3 /* pauseButton (1).png in Resources */,
+				73DA9A152277B7B30023775E /* appICon3 58x58.png in Resources */,
+				73DA9A162277B7B30023775E /* appICon2 60x60.png in Resources */,
 				73B4C66A226FD740004C1DD3 /* blackGoPic.png in Resources */,
 				73B4C66B226FD740004C1DD3 /* whiteGoPic.png in Resources */,
 				73D4CA9F226BE646003D1B03 /* LaunchScreen.storyboard in Resources */,
+				73DA9A182277B7B30023775E /* appICon6 180x180.png in Resources */,
+				73DA9A142277B7B30023775E /* appICon4 87x87.png in Resources */,
 				73B4C66C226FD740004C1DD3 /* greenBackground.png in Resources */,
 				73B4C680226FEF4C004C1DD3 /* blackZZZPic.png in Resources */,
 				73B4C677226FE10E004C1DD3 /* blackGoPic.png in Resources */,
+				73DA9A0A2277B5F80023775E /* WTIcon2.png in Resources */,
 				73D4CA9C226BE646003D1B03 /* Assets.xcassets in Resources */,
 				73B4C67F226FEF4C004C1DD3 /* whiteRestPic.png in Resources */,
+				73DA9A0C2277B5F80023775E /* WTIcon3.png in Resources */,
 				73B4C681226FEF4C004C1DD3 /* whiteZZZPic.png in Resources */,
 				73D4CA9A226BE645003D1B03 /* Main.storyboard in Resources */,
 				73B4C67E226FEF4C004C1DD3 /* blackRestPic.png in Resources */,
@@ -481,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A8K59225F;
 				INFOPLIST_FILE = "Workout Timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,7 +530,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Devvers.Workout-Timer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -498,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A8K59225F;
 				INFOPLIST_FILE = "Workout Timer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,7 +548,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Devvers.Workout-Timer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

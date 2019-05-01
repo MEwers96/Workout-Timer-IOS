@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     //MARK: Outlets?
+    var audioPlayer =  AVAudioPlayer()
+    
     var timer: Timer!
     
     var pauseIsActive = false
@@ -20,13 +23,21 @@ class ViewController: UIViewController {
     
     var tempRestCount = 0
     
+    var countDown = 5
+    
     var restIsActive = false
     
     var totalTime = 0
     
+    var TimeLabelX:CGFloat = 0
+    
+    var TimeLabelY:CGFloat = 0
+    
     private let dataSource = ["10", "20", "30", "40", "50"]
    
     var currentColor = UIColor.lightGray
+    
+    @IBOutlet weak var countDownLabel: UILabel!
     
     @IBOutlet weak var pausedLabel: UILabel!
     
@@ -71,6 +82,7 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = currentColor
         
+        
         intervalPicker.dataSource = self
         intervalPicker.delegate = self
         
@@ -87,7 +99,7 @@ class ViewController: UIViewController {
      */
     @IBAction func timeChangeAction(_ sender: UIButton) {
         
-        timerPicker.countDownDuration = 0
+        timerPicker.countDownDuration = 60
         
         timerChangeButton.isHidden = true
         
@@ -192,7 +204,7 @@ class ViewController: UIViewController {
         cancelButton.center.x += 300
         
         restLabel.center.x = -600
-        goLabel.center.y = -70
+        goLabel.center.y = -10
         pausedLabel.center.x = 600
         
         pausedLabel.isHidden = false
@@ -216,11 +228,11 @@ class ViewController: UIViewController {
                 
                 self.TimeLabel.text?.append(":00")
                 
-                self.TimeLabel.center.y += 150
+                self.TimeLabel.center = self.view.center
                 
-                self.TimeLabel.center.x -= 25
+                self.TimeLabel.center.y -= 100
                 
-                self.goLabel.center.y += 300
+                self.goLabel.center.y += self.view.center.y/2
 
                 
                 self.TimeLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -229,6 +241,10 @@ class ViewController: UIViewController {
         
         restLabel.center.y = goLabel.center.y
         pausedLabel.center.y = goLabel.center.y
+        
+        TimeLabelX = TimeLabel.center.x
+        TimeLabelY = TimeLabel.center.y
+        
         runTimer()
     
 }
@@ -266,6 +282,7 @@ class ViewController: UIViewController {
     @objc func updateTimer(){
         if(totalTime < 1){
             timer.invalidate()
+            performCancel()
         }
         else{
             
@@ -302,44 +319,96 @@ class ViewController: UIViewController {
     /* function: restGoUpdater()
      *
      * Description: This function will keep track of the interval selected by the user. Once the timer starts, the user will be in "go" time. Once (60 seconds - interval seconds) is reached, then the user will go into rest mode
+     *
+     * Update (4/27/2019): this function will now consider the timer for a countdown timer between phases. It will also animate the countdown.
      */
     func restGoUpdater(){
+        let sound = Bundle.main.path(forResource: "Beep", ofType: "mp3")
+        countDownLabel.transform = CGAffineTransform.identity
+        var bounds = countDownLabel.bounds
+        bounds.size = countDownLabel.intrinsicContentSize
+        
+        let newXScale = bounds.size.width / countDownLabel.frame.size.width
+        
+        let newYscale = bounds.size.height / countDownLabel.frame.size.height
+        
         if(restIsActive == true){
             if(tempRestCount == 0){
                 
                 restIsActive = false
-                
+                countDownLabel.isHidden = true
                 currentColor = UIColor.green
                 self.view.backgroundColor = UIColor.green
+                tempIntervalCount += 1
                 self.viewDidLoad()
-               
                 goPicAnimation()
 
                 
             }
             else{
+                
+                if(tempRestCount <= 6 && tempRestCount > 0){
+                    countDownLabel.isHidden = false
+                    countDownLabel.text = String(tempRestCount - 1)
+                    
+                    
+                    UIView.animate(withDuration: 1.0, animations: {
+                        
+                        self.countDownLabel.transform = CGAffineTransform(scaleX: newXScale/2, y: newYscale/2)
+                    })
+                    do{
+                    audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+                    } catch{
+                        //error?
+                        return
+                    }
+                    tempRestCount -= 1
+                }
+                else{
                 tempRestCount -= 1
+                }
             }
         }
-        else{
-            
-            
-            tempIntervalCount += 1
-        }
         
-        if(tempIntervalCount == 60-intervalTime){
+        else if(tempIntervalCount == 60-intervalTime){
             restIsActive = true
+            countDown = 5
+            countDownLabel.isHidden = true
             currentColor = UIColor.blue
             self.view.backgroundColor = UIColor.blue
             self.viewDidLoad()
-
-
-            tempRestCount = intervalTime
+            
+            
+            
+            tempRestCount = intervalTime - 1
             tempIntervalCount = 0
             goPicAnimation()
-
+            
             
         }
+        else if(tempIntervalCount >= (60-intervalTime) - 6){
+            countDownLabel.isHidden = false
+            countDownLabel.text = String(countDown)
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                
+                self.countDownLabel.transform = CGAffineTransform(scaleX: newXScale/2, y: newYscale/2)
+            })
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            }
+            catch{
+                //error?
+                return
+            }
+            tempIntervalCount += 1
+            countDown -= 1
+        }
+        else{
+            tempIntervalCount += 1
+        }
+        
+        
         
     }
     
@@ -359,7 +428,6 @@ class ViewController: UIViewController {
         }
         else{
         restLabel.isHidden = false
-        //restLabel.center.x = goLabel.center.x
         UIView.animate(withDuration: 1.0, animations: {
             self.restLabel.center.x = self.goLabel.center.x
             self.restLabel.center.y = self.goLabel.center.y
@@ -370,9 +438,6 @@ class ViewController: UIViewController {
 
         }
     }
-    
-
-    
     
     /* function: pauseButtonAction
      *
@@ -441,20 +506,40 @@ class ViewController: UIViewController {
     
     /* function: cancelButtonAction
      *
-     * Description: This function will be called by the 'cancel' button. It will return to the original screen where the user may interact with the time changing buttons.
+     * Description [OUTDATED READ UPDATE]: This function will be called by the 'cancel' button. It will return to the original screen where the user may interact with the time changing buttons.
+     *
+     * Update: This function will be called by the 'cancel button. It will call the performCancel function below.
      */
     @IBAction func cancelButtonAction(_ sender: UIButton) {
+        performCancel()
+    }
+    
+    /* funciton performCancel
+     *
+     * Description: This function will be the action caused by the user pressing the cancel button OR when the timer finishes. The function will return the app to its original screen before the timer was ran.
+     */
+    func performCancel(){
         self.view.backgroundColor = .lightGray
         
         timer.invalidate()
         
-        
+        countDownLabel.isHidden = true
+        countDownLabel.transform = CGAffineTransform.identity
+
         UIView.animate(withDuration: 2.5, animations: {
             
-                
-            self.TimeLabel.center.y -= 150
+            /* TODO: This can be cleaned up so that all iphones
+             * can run the app with proper spacing. Very close to
+             * getting this, keep testing.
+             */
+            self.TimeLabel.center.y = self.TimeLabelY
             
-            self.TimeLabel.center.x += 25
+            self.TimeLabel.center.x = self.TimeLabelX
+            
+            
+            //self.TimeLabel.center.y -= self.view.center.y/4
+            
+            //self.TimeLabel.center.x += self.view.center.x/6
                 
             self.TimeLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
                 
@@ -476,7 +561,7 @@ class ViewController: UIViewController {
                 self.pausedLabel.center.x += 600
             }
             else if(self.restIsActive == false){
-                self.goLabel.center.y -= 300
+                self.goLabel.center.y -= self.view.center.y/2
             }
             else{
                 self.restLabel.center.x -= 600
@@ -487,6 +572,7 @@ class ViewController: UIViewController {
             
             
             })
+            countDown = 5
             tempRestCount = 0
             tempIntervalCount = 0
             restIsActive = false
@@ -519,10 +605,6 @@ class ViewController: UIViewController {
     }
 }
 
-
-
-
-    
     /* This ViewController extension is for the
      * UIPicker.
      */
