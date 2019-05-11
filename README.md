@@ -1,6 +1,6 @@
 # Workout Timer Development.
 
-The app will be first developed on IOS Apple systems. The app may be later
+The app will be first developed on IOS Apple systems. The app may be later 
 developed/ported to Andriod.
 
 # Workout Timer:
@@ -35,14 +35,21 @@ the "Rest" time the app will have a red background, with white text for the time
 
   **COMPLETE**
 
-6. Implement designs in the app. Background pictures/colors, animated gifs for "go" and "rest" phases
+6. ~~Implement designs in the app. Background pictures/colors, animated gifs for "go" and "rest" phases~~
 
-  **IN-PROGRESS (MOSTLY FINISHED)**
+  **COMPLETE**
+  **NOTE:** Orginal gif design idea has been scrapped. Simply didn't look good with only being able to animate every 1.0 seconds. New design works and is smooth!
   
 
 # NEW FEATURES:
 
 1. Add 5 second countdown timer before each phase of "Rest" and "Go" begins. 
+  **COMPLETE**
 
 2. Add Sound which plays at each second of the above feature. 
+  **COMPLETE / NEEDS TESITNG**
+  
+3. Add ability to select exercise interval time along with rest time. 
+
+4. Conside adMob ads (at least for practice)
 
