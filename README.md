@@ -46,10 +46,16 @@ the "Rest" time the app will have a red background, with white text for the time
 1. Add 5 second countdown timer before each phase of "Rest" and "Go" begins. 
   **COMPLETE**
 
+
 2. Add Sound which plays at each second of the above feature. 
   **COMPLETE / NEEDS TESITNG**
   
+  
 3. Add ability to select exercise interval time along with rest time. 
 
-4. Conside adMob ads (at least for practice)
+
+4. Consider adMob ads (at least for practice)
+
+  
+
 
