@@ -1,6 +1,6 @@
 # Workout Timer Development.
 
-The app will be first developed on IOS Apple systems. The app may be later
+The app will be first developed on IOS Apple systems. The app may be later 
 developed/ported to Andriod.
 
 # Workout Timer:

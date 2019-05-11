@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Workout Timer.xcodeproj">
+      location = "self:/Users/user153727/Desktop/Workout Timer/Custom Intervals.xcodeproj">
    </FileRef>
 </Workspace>
